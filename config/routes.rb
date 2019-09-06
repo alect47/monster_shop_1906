@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   post "/users", to: "users#create"
 
   get "/profile", to: "users#show"
+  get "/profile/orders", to: "orders#index"
   get '/profile/edit', to: 'users#edit'
   get '/profile/password_edit', to: 'users#password_edit'
   patch '/profile', to: 'users#update'
@@ -47,6 +48,7 @@ Rails.application.routes.draw do
   #I think login action is like a new action, could also call it new
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 
   namespace :merchant do
     get '/', to: "dashboard#index"

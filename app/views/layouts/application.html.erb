@@ -30,8 +30,8 @@
       </section>
       <section>
         <% if current_user %>
-          <%= link_to "Logout" %>
-          <%= link_to "Profile" %>
+          <%= link_to "Logout", "/logout", method: :delete %>
+          <%= link_to "Profile", "/profile" %>
           <p>Logged in as <%= current_user.name %></p>
           <% if current_merchant_admin? || current_merchant_employee? %>
             <%= link_to 'Merchant Dashboard', '/merchant' %>
