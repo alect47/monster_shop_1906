@@ -21,12 +21,4 @@ describe "As a mechant employee or merchant admin" do
       expect(page).to have_link("Merchant Dashboard")
     end
   end
-
-  it 'When I visit my dashboard I see a link to view my own items' do
-    visit '/items'
-    click_link 'Merchant Dashboard'
-    expect(current_path).to eq('/merchant')
-    click_link 'View My Current Items'
-    expect(current_path).to eq('/merchant/items')
-  end
 end

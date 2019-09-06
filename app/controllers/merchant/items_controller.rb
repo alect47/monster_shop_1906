@@ -2,6 +2,7 @@ class Merchant::ItemsController < ApplicationController
   before_action :require_merchant
 
   def index
+    @merchant = Merchant.find(current_user.merchant_id)
   end
 
   private
