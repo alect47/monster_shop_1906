@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "User Profile" do
+describe "User Profile" do
   describe "As a registered user" do
     before :each do
       @user = User.create(name: 'Christopher', address: '123 Oak Ave', city: 'Denver', state: 'CO', zip: 80021, email: 'christopher@email.com', password: 'p@ssw0rd', role: 0)
@@ -80,7 +80,7 @@ RSpec.describe "User Profile" do
     it 'I must use a unique email address when updating my profile' do
       visit '/profile/edit'
 
-      email = 'christopher@email.com'
+      email = 'ck@email.com'
 
       fill_in "Email", with: email
       click_button 'Update Profile'
