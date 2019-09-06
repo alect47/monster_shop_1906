@@ -11,7 +11,9 @@ describe "When a user logs out" do
     within 'nav' do
       expect(page).to have_content("Cart: 1")
     end
+
     expect(page).to have_content("Logged in as #{user.name}")
+    binding.pry
     click_link("Logout")
     expect(current_path).to eq("/")
     expect(page).to have_content("You have been logged out.")

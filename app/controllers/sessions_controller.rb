@@ -35,10 +35,10 @@ class SessionsController < ApplicationController
 
     def destroy
       session.delete(:cart)
-      session.delete(:user_id)
+      # session.delete(:user_id)
       #reset_session
-      #session[:user_id] = nil
-
+      session[:user_id] = nil
+      current_user = nil
       flash[:success] = "You have been logged out."
       redirect_to '/'
     end
