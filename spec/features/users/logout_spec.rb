@@ -45,13 +45,8 @@ describe "When a user logs out" do
       expect(page).to have_content("Cart: 1")
     end
 
-<<<<<<< HEAD
-    expect(page).to have_content("Logged in as #{user.name}")
-    binding.pry
-=======
     expect(page).to have_content("Logged in as #{name}")
 
->>>>>>> 4678ca6d887efb455cf61f8caeb9060f7507c93a
     click_link("Logout")
 
     expect(current_path).to eq("/")
