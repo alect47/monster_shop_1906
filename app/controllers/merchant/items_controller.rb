@@ -47,7 +47,7 @@ class Merchant::ItemsController < Merchant::BaseController
     @merchant = Merchant.find(current_user.merchant_id)
     @item = @merchant.items.create(item_params)
     if @item.image == ""
-     @item.show_default_image
+      @item.image = "https://thumbs.dreamstime.com/b/coming-soon-neon-sign-brick-wall-background-87865865.jpg"
     end
     if @item.save
       redirect_to "/merchant/items"
