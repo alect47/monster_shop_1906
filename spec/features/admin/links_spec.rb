@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe "As an Admin User" do
+describe 'As an Admin User' do
   before :each do
-    @admin = User.create(name: 'Christopher', address: '123 Oak Ave', city: 'Denver', state: 'CO', zip: 80021, email: 'christopher@email.com', password: 'p@ssw0rd', role: 3)
+    @admin = User.create(name: 'Christopher', address: '123 Oak Ave', city: 'Denver', state: 'CO', zip: 80_021, email: 'christopher@email.com', password: 'p@ssw0rd', role: 3)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
   end
 
-  it "I see the same links as a regular user, a link to admin dashboard, and a link to show all users. I do not see a link to shopping cart." do
+  it 'I see the same links as a regular user, a link to admin dashboard, and a link to show all users. I do not see a link to shopping cart.' do
     visit '/'
 
     within 'nav' do
@@ -16,7 +16,7 @@ describe "As an Admin User" do
       expect(page).to have_link('Logout')
       expect(page).to have_link('Admin Dashboard')
       expect(page).to have_link('Users')
-      expect(page).to_not have_link("Cart: 0")
+      expect(page).to_not have_link('Cart: 0')
     end
   end
 end

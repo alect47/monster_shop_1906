@@ -1,4 +1,4 @@
-class Item <ApplicationRecord
+class Item < ApplicationRecord
   belongs_to :merchant
   has_many :reviews, dependent: :destroy
   has_many :item_orders
@@ -32,18 +32,18 @@ class Item <ApplicationRecord
 
   def subtract(num)
     self.inventory -= num
-    self.save
+    save
   end
 
   def toggle
-    self.update(active?: !active?)
+    update(active?: !active?)
   end
 
   def self.most_popular_items
-    joins(:item_orders).where(active?: true).group(:id).select("items.*, sum(quantity) as quantity_purchased").order("quantity_purchased DESC").limit(5)
+    joins(:item_orders).where(active?: true).group(:id).select('items.*, sum(quantity) as quantity_purchased').order('quantity_purchased DESC').limit(5)
   end
 
   def self.least_popular_items
-    joins(:item_orders).where(active?: true).group(:id).select("items.*, sum(quantity) as quantity_purchased").order("quantity_purchased").limit(5)
+    joins(:item_orders).where(active?: true).group(:id).select('items.*, sum(quantity) as quantity_purchased').order('quantity_purchased').limit(5)
   end
 end

@@ -10,13 +10,12 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Welcome, #{@user.name}! You are now registered and logged in."
-      redirect_to "/profile"
+      redirect_to '/profile'
     else
       flash[:error] = @user.errors.full_messages.uniq
       render :new
     end
   end
-
 
   def show
     if current_user && current_admin?
@@ -50,11 +49,10 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
 
   def require_user
-    render file: "/public/404" unless current_user
+    render file: '/public/404' unless current_user
   end
 
   def user_params
